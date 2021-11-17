@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 
 export default function Home() {
   return <>
@@ -15,10 +16,10 @@ export default function Home() {
               <div className="mt-2 mr-16 font-bold text-white">Founders</div>
 
             </div>
-            <div className="ml-auto mt-32 sm:w-full md:w-2/3 xl:w-1/3 h-full ">
+            <div className="md:ml-auto ml-2 mt-32 sm:w-full md:w-2/3 xl:w-1/3 h-full ">
               <h1 className="text-white text-5xl font-bold">Enjoy Your City</h1>
               <h3 className="text-white text-xl font-semibold mt-16">Find the perfect spot to chill with your friend</h3>
-              <button className="mt-16 py-2 px-2 text-3xl text-white bg-accueil-button">Start sharing</button>
+              <p className="mt-16"><Link href="/accueil" ><a className="mt-16 py-2 px-2 text-3xl text-white bg-accueil-button">Start sharing</a></Link></p>
             </div>
           </div>
       </div>
