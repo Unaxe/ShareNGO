@@ -5,11 +5,11 @@ module.exports = {
   theme: {
     extend: {
       width:{
-        '100': '55rem',
+        '100': '60%',
         '140': '140rem',
       },
       height:{
-        '100': '60%',
+        '100': '33rem',
         '140': '140rem',
       },
       colors: {
