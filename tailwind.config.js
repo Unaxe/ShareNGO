@@ -9,7 +9,7 @@ module.exports = {
         '140': '140rem',
       },
       height:{
-        '100': '36rem',
+        '100': '60%',
         '140': '140rem',
       },
       colors: {
@@ -19,6 +19,9 @@ module.exports = {
           w: '#1A0840',
           button: '#C10B37',
         }
+      },
+      backgroundImage:{
+        landing: "url('/landig_bg_2.jpg')"
       }
     },
   },
