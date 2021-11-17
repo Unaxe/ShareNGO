@@ -14,34 +14,51 @@ export default function Lieu(){
         }
     ]
 
+    const lieu = {
+        avis : avis,
+        title : "Sequoia, Rooftop Bar",
+        emplacement: "27/29 Bd des Capucines",
+        rates: [
+            {
+                title:"Ambiance",
+                rate: 3.6
+            },
+            {
+                title:"Service",
+                rate: 4.2
+            }
+        ],
+        cost:30,
+        type: "Bar"
+    }
+
 
     return <>
     <div className="px-8">
-        <h1 className="mt-8  text-yellow-500 font-extrabold text-4xl">Sequoia, Rooftop Bar</h1>
-        <p className="mt-4 truncate">Emplacement géographique : 27/29 Bd des Capucines</p>
-        <div className="flex">
+        <h1 className="mt-8  text-yellow-500 font-extrabold text-4xl">{lieu.title}</h1>
+        <p className="mt-4 truncate">Emplacement géographique : {lieu.emplacement}</p>
+        <div className="sm:flex">
     
-            <div className=" w-5/12">
-                <div className="flex">
-                    <p>Ambiance : </p>
-                    <div className="ml-2">
-                        <Etoiles rate="3.6"></Etoiles>
-                    </div>
-                </div>
-                <p>Prix moyen : <span className="font-bold">30€</span></p>
-                <p>Type : <span className="font-bold">Bar</span></p>
-                <div className="flex">
-                    <p>Service : </p>
-                    <div className="ml-2">
-                        <Etoiles rate="4.2"></Etoiles>
-                    </div>
-                </div>
+            <div className=" sm:w-5/12">
+                {
+                    lieu.rates.map((rate,key) => 
+                        <div className="flex" key={key}>
+                            <p>{rate.title} : </p>
+                            <div className="ml-2">
+                                <Etoiles rate={rate.rate}></Etoiles>
+                            </div>
+                        </div>
+                    )
+                }
+                
+                <p>Prix moyen : <span className="font-bold">{lieu.cost}€</span></p>
+                <p>Type : <span className="font-bold">{lieu.type}</span></p>
             </div>
-            <div className="w-7/12 mt-2">
+            <div className="sm:w-7/12 mt-2">
                 <p className=""><img src="/landing_bg.jpg" alt="image"/></p>
             </div>
         </div>
-        <div className="md:flex mb-16">
+        <div className="lg:flex mb-16">
             <div className="md:w-1/2">
                 <h3 className=" mt-16 text-pink-700 font-semibold">Avis de tes amis :</h3>
                 {avis.map((avi,i) =>

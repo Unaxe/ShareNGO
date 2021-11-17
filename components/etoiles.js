@@ -10,7 +10,7 @@ export default function Etoiles(props){
         <div className="flex">
             { 
             stars.map((star,i)=>
-                <li className="list-none" key={i}>{star}</li>
+                <li className="list-none " key={i}>{star}</li>
             )
             }
             <p className="ml-2">{props.rate}</p>
