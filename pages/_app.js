@@ -3,6 +3,8 @@ import Head from 'next/head'
 import '../styles/global.css'
 import 'remixicon/fonts/remixicon.css'
 
+
+
 function MyApp({ Component, pageProps }) {
 
   return <>
@@ -13,6 +15,8 @@ function MyApp({ Component, pageProps }) {
 
   </Head>
   <Component {...pageProps} />
+
+  
   </>
 }
 

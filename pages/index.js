@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 export default function Home() {
   return <>
+    <main>
       <div className="top-0 bottom-0 left-0 right-0 fixed">
           <div className="h-full bg-landing bg-center bg-cover bg-no-repeat">
             <div className="flex h-16 items-center w-full">
@@ -23,5 +24,6 @@ export default function Home() {
             </div>
           </div>
       </div>
+    </main>
     </>
 }

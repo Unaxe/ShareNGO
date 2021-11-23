@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function Accueil(){
 
     return <>
@@ -20,7 +22,7 @@ export default function Accueil(){
                 <div>
                     <h1 className="text-white text-5xl font-bold">Where can I rest ?</h1>
                     <p className="text-white mt-4 text-xl">Find and Share the perfect spot with your friends !!</p>
-                    <button className="w-32 mt-5 h-12 text-xl p-auto  rounded-md bg-accueil-button text-white">Maps</button>
+                    <Link href="/listeLieux"><a className="w-32 mt-5 h-12 text-xl p-auto  rounded-md bg-accueil-button text-white">Maps</a></Link>
                 </div>
             </div>
             <div className="absolute w-100 h-100 bg-accueil-images top-0 right-0">
