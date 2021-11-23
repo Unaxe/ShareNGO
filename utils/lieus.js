@@ -8,7 +8,6 @@ const getLieus = async () => {
 
 const getLieu = async (pid) => {
     const snapshot = await firestore.collection("lieu").doc(pid).get();
-    console.log(snapshot.id)
     return (snapshot.data());
 };
 

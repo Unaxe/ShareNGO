@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import Avis from "../../components/avis"
 import Etoiles from "../../components/etoiles"
 import Loading from "../../components/loading"
+import TopBar from "../../components/topbar"
 import { getLieu } from "../../utils/lieus"
 
 
@@ -19,7 +20,9 @@ const Lieu = () => {
 
     if (!lieu){
         return (<>
+            
             <div className="fixed top-0 bottom-0 left-0 right-0 ">
+            <TopBar></TopBar>
                 <Loading > 
                 </Loading > 
             </div>
@@ -27,6 +30,7 @@ const Lieu = () => {
         )
     }
     return <>
+    <TopBar></TopBar>
     <div className="px-8">
         <h1 className="mt-8  text-yellow-500 font-extrabold text-4xl">{lieu.name}</h1>
         <p className="mt-4 truncate">Emplacement géographique : {lieu.emplacement}</p>

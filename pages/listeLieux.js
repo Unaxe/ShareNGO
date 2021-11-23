@@ -2,13 +2,14 @@ import Loading from "../components/loading"
 import Link from 'next/link'
 import { useEffect, useState } from "react"
 import { getLieus } from "../utils/lieus"
+import TopBar from "../components/topbar"
 
 export default function ListLieux() {
     
     const [lieus,setLieus] = useState(null);
     
     useEffect(async () => {
-        setLieus(await getLieus("JlxNHxZunZiFbKyVSeiU"));
+        setLieus(await getLieus());
         console.log(lieus);
     },[])
     console.log(lieus);
@@ -16,6 +17,7 @@ export default function ListLieux() {
     if (!lieus){
         return (<>
             <div className="fixed top-0 bottom-0 left-0 right-0 ">
+                <TopBar></TopBar>
                 <Loading > 
                 </Loading > 
             </div>
@@ -25,9 +27,10 @@ export default function ListLieux() {
     return (
         <>
             <main>
+                <TopBar/>
                 <div>
                     {lieus.docs.map((lieu) =>{
-                        return <div key={lieu.id} className = "w-full h-64 bg-red-500"> 
+                        return <div key={lieu.id} className = "w-full h-32 border-2 border-red-500"> 
                             <p>
                                 <Link href={"/lieu/"+lieu.id}>
                                     <a>{lieu.data().name}</a>
@@ -36,7 +39,6 @@ export default function ListLieux() {
                         </div>
                     })
                     }
-                    <div>Bonjour</div>
                 </div>
             </main>
         </>

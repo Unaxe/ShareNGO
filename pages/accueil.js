@@ -1,15 +1,12 @@
 import Link from 'next/link'
-
+import TopBar from "../components/topbar"
 export default function Accueil(){
 
     return <>
-        <div className="fixed top-0 bg-accueil-fond bottom-0 left-0 right-0 flex flex-wrap">
+        <TopBar></TopBar>
+        <div className="fixed top-24 bg-accueil-fond bottom-0 left-0 right-0 flex flex-wrap">
             <div className="mt-4 ml-4"> 
-                <div className="flex items-center">
-                    <p className="rounded-full bg-white border-2 border-purple-400"><img className="h-16 w-16" src="/logo.svg" alt="Share N'Go"/></p>
-                    <div className="ml-8"><h1 className="font-bold">Share'N'Go</h1></div>
-                </div>
-                <div className="ml-8 mt-8">
+                <div className="ml-8 mt-2">
                     <ul className="list-none">
                         <li className="inline-block text-red-500 mr-8">Restaurant</li>
                         <li className="inline-block text-red-500 mr-8">Bar Night</li>

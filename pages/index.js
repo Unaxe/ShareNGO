@@ -6,10 +6,10 @@ export default function Home() {
     <main>
       <div className="top-0 bottom-0 left-0 right-0 fixed">
           <div className="h-full bg-landing bg-center bg-cover bg-no-repeat">
-            <div className="flex h-16 items-center w-full">
-              <div className="h-16 w-16 bg-white rounded-full mt-4 ml-4 overflow-hidden border-purple-400 border-4">
-                <p><img src="/logo.svg" alt="Share'N'Go"/></p>
-              </div>
+            <div className="flex h-16 pt-8 items-center w-full">
+                <div>
+                    <div className="rounded-full ml-4 bg-white border-2 border-purple-400" ><p ><img className="h-16 w-16" src="/logo.svg" alt="Share N'Go"/></p></div>
+                </div>
               <div className="ml-2 mt-2 text-white font-bold">
                 <h1>Share'N'Go</h1>
               </div>
