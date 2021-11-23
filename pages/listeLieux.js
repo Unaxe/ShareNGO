@@ -28,7 +28,7 @@ export default function ListLieux() {
         <>
             <main>
                 <TopBar/>
-                <div>
+                <div className="lg:w-3/4 lg:mx-auto">
                     {lieus.docs.map((lieu) =>{
                         return <div key={lieu.id} className = "w-full h-32 border-2 border-red-500"> 
                             <p>

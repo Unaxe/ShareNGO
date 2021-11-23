@@ -20,7 +20,6 @@ const Lieu = () => {
 
     if (!lieu){
         return (<>
-            
             <div className="fixed top-0 bottom-0 left-0 right-0 ">
             <TopBar></TopBar>
                 <Loading > 
@@ -36,7 +35,7 @@ const Lieu = () => {
         <p className="mt-4 truncate">Emplacement géographique : {lieu.emplacement}</p>
         <div className="sm:flex">
     
-            <div className=" sm:w-5/12">
+            <div className=" sm:w-7/12">
                 {
                     lieu.rates.map((rate,key) => 
                         <div className="flex" key={key}>
@@ -51,7 +50,7 @@ const Lieu = () => {
                 <p>Prix moyen : <span className="font-bold">{lieu.cost}€</span></p>
                 <p>Type : <span className="font-bold">{lieu.type}</span></p>
             </div>
-            <div className="sm:w-7/12 mt-2">
+            <div className="sm:w-5/12 mt-2">
                 <p className=""><img src="/landing_bg.jpg" alt="image"/></p>
             </div>
         </div>

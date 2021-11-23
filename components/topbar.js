@@ -4,8 +4,9 @@ export default function TopBar(){
     return (
         <>
             <div className="w-full h-24 border-b-2 border-red flex">
-                <div className="flex flex-col justify-center items-center">
-                    <div className="rounded-full ml-4 bg-white border-2 border-purple-400" ><p ><img className="h-16 w-16" src="/logo.svg" alt="Share N'Go"/></p></div>
+                <div className="flex flex-col justify-center items-center ml-4">
+                    <div className="rounded-full  bg-white border-2 border-purple-400 mt-1" ><p ><img className="h-16 w-16" src="/logo.svg" alt="Share N'Go"/></p></div>
+                    <p className="font-bold ">Share N'Go</p>
                 </div>
                 <Link href="/accueil">
                     <div className="flex flex-col items-center justify-center ml-8 cursor-pointer">
@@ -29,6 +30,12 @@ export default function TopBar(){
                 <div className="flex flex-col items-center justify-center ml-8 cursor-pointer">
                     <i className="ri-contacts-line ri-2x"></i>
                     <p>Amis</p>
+                </div>
+                </Link>
+                <Link href="#">
+                <div className="flex flex-col items-center justify-center ml-8 cursor-pointer">
+                    <i className="ri-add-box-line ri-2x"></i>
+                    <p>Créer</p>
                 </div>
                 </Link>
             </div>
