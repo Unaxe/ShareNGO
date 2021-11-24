@@ -2,6 +2,7 @@ import Loading from "../components/loading"
 import Link from 'next/link'
 import { useEffect, useState } from "react"
 import { getLieus } from "../utils/lieus"
+import MiniLieu from "../components/miniLieu"
 import TopBar from "../components/topbar"
 
 export default function ListLieux() {
@@ -30,10 +31,12 @@ export default function ListLieux() {
                 <TopBar/>
                 <div className="lg:w-3/4 lg:mx-auto">
                     {lieus.docs.map((lieu) =>{
-                        return <div key={lieu.id} className = "w-full h-32 border-2 border-red-500"> 
+                        return <div key={lieu.id} className = "w-full border-2 border-red-500"> 
                             <p>
                                 <Link href={"/lieu/"+lieu.id}>
-                                    <a>{lieu.data().name}</a>
+                                    <a>
+                                        <MiniLieu></MiniLieu>
+                                    </a>
                                 </Link>
                             </p>
                         </div>
