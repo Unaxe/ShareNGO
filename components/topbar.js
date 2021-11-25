@@ -9,31 +9,31 @@ export default function TopBar(){
                     <p className="font-bold ">Share N'Go</p>
                 </div>
                 <Link href="/accueil">
-                    <div className="flex flex-col items-center justify-center ml-8 cursor-pointer">
+                    <div className="flex flex-col items-center justify-center ml-8 cursor-pointer hover:text-blue-400">
                         <i className="ri-home-3-line ri-2x"></i>
                         <p>Accueil</p>
                     </div>
                 </Link>
                 <Link href="/listeLieux">
-                <div className="flex flex-col items-center justify-center ml-8 cursor-pointer">
+                <div className="flex flex-col items-center justify-center ml-8 cursor-pointer hover:text-blue-400">
                     <i className="ri-trophy-line ri-2x"></i>
                     <p>Top lieux</p>
                 </div>
                 </Link>
                 <Link href="#">
-                <div className="flex flex-col items-center justify-center ml-8 cursor-pointer">
+                <div className="flex flex-col items-center justify-center ml-8 cursor-pointer hover:text-blue-400">
                     <i className="ri-search-line ri-2x"></i>
                     <p>Rechercher</p>
                 </div>
                 </Link>
                 <Link href="#">
-                <div className="flex flex-col items-center justify-center ml-8 cursor-pointer">
+                <div className="flex flex-col items-center justify-center ml-8 cursor-pointer hover:text-blue-400">
                     <i className="ri-contacts-line ri-2x"></i>
                     <p>Amis</p>
                 </div>
                 </Link>
-                <Link href="#">
-                <div className="flex flex-col items-center justify-center ml-8 cursor-pointer">
+                <Link href="/addlieu">
+                <div className="flex flex-col items-center justify-center ml-8 cursor-pointer hover:text-blue-400">
                     <i className="ri-add-box-line ri-2x"></i>
                     <p>Créer</p>
                 </div>

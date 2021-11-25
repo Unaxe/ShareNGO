@@ -25,17 +25,25 @@ export default function ListLieux() {
         </>
         )
     }
+    if(lieus.docs.length==0){
+        return (<>
+        <div className="fixed top-0 bottom-0 left-0 right-0">
+                <TopBar></TopBar>
+                <div class="mt-64 text-center">Il n'y a pas de lieux dans la BDD</div> 
+            </div>
+        </>)
+    }
     return (
         <>
             <main>
                 <TopBar/>
                 <div className="lg:w-3/4 lg:mx-auto">
                     {lieus.docs.map((lieu) =>{
-                        return <div key={lieu.id} className = "w-full border-2 border-red-500"> 
+                        return <div key={lieu.id} className = "w-full mb-4"> 
                             <p>
                                 <Link href={"/lieu/"+lieu.id}>
                                     <a>
-                                        <MiniLieu></MiniLieu>
+                                        <MiniLieu lieu={lieu.data()}></MiniLieu>
                                     </a>
                                 </Link>
                             </p>

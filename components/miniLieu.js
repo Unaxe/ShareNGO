@@ -1,37 +1,34 @@
 import Etoiles from "./etoiles"
-import Avis from "./avis"
+import MiniAvis from "./miniavis"
 
-export default function MiniLieu(){
-    const aha = {
-        name : "Marco ",
-        content : "J'ai aimé;"
-    }
+export default function MiniLieu(props){
     return(
         <>
-        <div className="flex h-64">
+        <div className="md:flex">
 
-            <div className="w-1/2 border-r-2"> 
-                image
+            <div className="md:w-1/3 w-full"> 
+                <div className="my-auto flex  align-middle align-center"><img src="/landing_bg.jpg" alt=""></img></div>
             </div>
 
-            <div className="w-1/2">
-                <div className="border-b-2 border-black pb-2">
-                    <h2 className="text-yellow-500 font-bold text-3xl">
-                        Sequoia Roof Top Bar
+            <div className="md:w-2/3 mb-2">
+                <div className="border-b-2 border-black pb-2 px-2">
+                    <h2 className="text-center text-yellow-500 font-bold text-3xl">
+                        {props.lieu.name}
                     </h2>
-                    <Etoiles rate="4.5">  </Etoiles>
+                    <Etoiles rate={props.lieu.rates[0].rate}>  </Etoiles>
                     <p>
-                        4 amis ont commenté
+                        {props.lieu.adress}
                     </p>
                     <p>
-                        Prix moyen : 30$
+                        {props.lieu.avis.length} amis ont commenté
+                    </p>
+                    <p>
+                        Prix moyen : {props.lieu.cost[0]}€
                     </p>
                 </div>
-                <div className="p-2"><Avis avis={aha} ></Avis></div>
+                {(props.lieu.avis.length > 0) && <div className="p-2"><MiniAvis avis={props.lieu.avis[0]} ></MiniAvis></div>
+                }
             </div>
-
-
-
         </div>
         </>
     )

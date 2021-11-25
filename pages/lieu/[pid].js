@@ -4,19 +4,35 @@ import Avis from "../../components/avis"
 import Etoiles from "../../components/etoiles"
 import Loading from "../../components/loading"
 import TopBar from "../../components/topbar"
-import { getLieu } from "../../utils/lieus"
+import { getLieu,addRate } from "../../utils/lieus"
 
 
 const Lieu = () => {
     const router = useRouter()
     const { pid } = router.query
-    
     const [lieu,setLieu] = useState(null);
-    
+    const [avis,setAvis] = useState(null);
+
     useEffect(async () => {
         setLieu(await getLieu(pid));
         console.log(lieu);
     },[])
+
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
+        const form = {
+            avis: [...lieu.avis, 
+                {
+                    content: avis,
+                    name: "user"
+                }
+            ]
+        };
+
+        addRate(pid,form);
+        console.log(form);
+        setLieu( {...lieu,avis:form.avis});
+    }
 
     if (!lieu){
         return (<>
@@ -32,7 +48,7 @@ const Lieu = () => {
     <TopBar></TopBar>
     <div className="px-8">
         <h1 className="mt-8  text-yellow-500 font-extrabold text-4xl">{lieu.name}</h1>
-        <p className="mt-4 truncate">Emplacement géographique : {lieu.emplacement}</p>
+        <p className="mt-4 truncate">Emplacement géographique : {lieu.adress}</p>
         <div className="sm:flex">
     
             <div className=" sm:w-7/12">
@@ -54,8 +70,8 @@ const Lieu = () => {
                 <p className=""><img src="/landing_bg.jpg" alt="image"/></p>
             </div>
         </div>
-        <div className="lg:flex mb-16">
-            <div className="md:w-1/2">
+        <div className="md:flex mb-16">
+            <div className="md:w-1/2 w-full">
                 <h3 className=" mt-16 text-pink-700 font-semibold">Avis de tes amis :</h3>
                 {lieu.avis.map((avi,i) =>
                     <div key={i} className="mt-2">
@@ -63,7 +79,19 @@ const Lieu = () => {
                     </div>
                 )}
                 </div>
-            <div className="w-1/2"></div>
+            <div className="md:w-1/2 w-full flex flex-col justify-center mt-8">
+                <p class ="mx-auto"><img alt="" src="/map.png"/></p>
+            </div>
+        </div>
+        <div className="mb-16">
+            <div>
+                <h3 className=" mt-16 text-pink-700 font-semibold">Laisser un avis :</h3>
+                <form onSubmit={handleSubmit}>
+                    <input type="text-area" placeholder="avis" onChange={e => setAvis(e.target.value)} value={avis}></input>
+                    <br/>
+                    <input type="submit" value="Submit" />
+                </form>
+            </div>
         </div>
     </div>  
     </>

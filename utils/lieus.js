@@ -11,4 +11,26 @@ const getLieu = async (pid) => {
     return (snapshot.data());
 };
 
-export { getLieus , getLieu}
+const addLieu = async (form) => {
+    await firestore.collection("lieu").add({
+        name : form.name,
+        adress : form.adress,
+        rates: [{
+            rate : form.rate,
+            title : "Moyenne"
+        }],
+        type: form.type,
+        avis : [],
+        cost: [form.cost]
+    })
+};
+
+const addRate = async (pid,form) => {
+    await firestore.collection("lieu").doc(pid).update({
+        avis: form.avis
+    })
+}
+    
+
+
+export { getLieus , getLieu, addLieu, addRate}
