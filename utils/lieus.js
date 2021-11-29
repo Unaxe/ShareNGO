@@ -15,10 +15,9 @@ const addLieu = async (form) => {
     await firestore.collection("lieu").add({
         name : form.name,
         adress : form.adress,
-        rates: [{
-            rate : form.rate,
-            title : "Moyenne"
-        }],
+        rates: {
+            moyenne : [parseInt(form.rate)]
+        },
         type: form.type,
         avis : [],
         cost: [form.cost]
@@ -26,8 +25,10 @@ const addLieu = async (form) => {
 };
 
 const addRate = async (pid,form) => {
+    console.log(form);
     await firestore.collection("lieu").doc(pid).update({
-        avis: form.avis
+        avis: form.avis,
+        rates: form.rates
     })
 }
     

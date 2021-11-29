@@ -4,7 +4,7 @@ export default function Avis(props){
     }
     return<>
         <div className="bg-gray-300 w-full">
-            <p className="font-bold">{ props.avis.name }:</p>
+            <p className="font-bold capitalize">{ props.avis.name }:</p>
             <p className="mt-2">{ props.avis.content }</p>
         </div>
     </>

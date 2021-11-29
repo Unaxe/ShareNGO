@@ -20,6 +20,7 @@ export default function AddLieu() {
             rate:rate
         };
         addLieu(form);
+        alert("Le Lieu a bien été crée")
     }
 
     return (

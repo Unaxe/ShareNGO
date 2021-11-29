@@ -2,12 +2,22 @@ import Etoiles from "./etoiles"
 import MiniAvis from "./miniavis"
 
 export default function MiniLieu(props){
+
+    function getMoyenne(array){
+        let s = 0;
+        for(let i=0;i<array.length;i++){
+            s+=array[i];
+        }
+        s /= array.length;
+        return s;
+    } 
+
     return(
         <>
         <div className="md:flex">
 
             <div className="md:w-1/3 w-full"> 
-                <div className="my-auto flex  align-middle align-center"><img src="/landing_bg.jpg" alt=""></img></div>
+                <div className="my-auto flex align-middle align-center"><img src="/landing_bg.jpg" alt=""></img></div>
             </div>
 
             <div className="md:w-2/3 mb-2">
@@ -15,7 +25,7 @@ export default function MiniLieu(props){
                     <h2 className="text-center text-yellow-500 font-bold text-3xl">
                         {props.lieu.name}
                     </h2>
-                    <Etoiles rate={props.lieu.rates[0].rate}>  </Etoiles>
+                    <Etoiles rate={getMoyenne(props.lieu.rates.moyenne)}>  </Etoiles>
                     <p>
                         {props.lieu.adress}
                     </p>

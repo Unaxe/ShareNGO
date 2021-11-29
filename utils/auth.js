@@ -1,17 +1,35 @@
-import React, { useState, useEffect, useContext, createContext } from 'react'
-import firebase from './firebase'
+import { auth } from "./firebase";
 
-const authContext = createContext();
+auth.onAuthStateChanged(user => {
+    if (user) {
+        console.log('user logged in :',user)
+    }
+    else {
+        console.log("user logged out")
+    }
+})  
 
-export function AuthProvider({ children }) {
-    const auth = getAuth();
-    return <authContext.Provider value={auth}>{children}</authContext.Provider>;
+
+const onSignup = (form) => {
+    
+    const email = form.mail;
+    const password = form.password;
+
+    auth.createUserWithEmailAndPassword(email,password).then(cred => {        
+    })
+    console.log(email,password)
 }
 
-export const useAuth = () => {
-    return useContext(authContext);
-};
-
-export const getAuth = () => {
-    return useContext(authContext)
+const onLogout = () => {
+    auth.signOut()
 }
+
+const onLogin = (form) => {
+    const email = form.mail;
+    const password = form.password;
+
+    auth.signInWithEmailAndPassword(email,password).then(cred => {
+    })
+}
+
+export {onSignup,onLogout,onLogin};

@@ -5,6 +5,7 @@ import Etoiles from "../../components/etoiles"
 import Loading from "../../components/loading"
 import TopBar from "../../components/topbar"
 import { getLieu,addRate } from "../../utils/lieus"
+import RateStar from "../../components/rateStars"
 
 
 const Lieu = () => {
@@ -12,6 +13,7 @@ const Lieu = () => {
     const { pid } = router.query
     const [lieu,setLieu] = useState(null);
     const [avis,setAvis] = useState(null);
+    const [rate, setRate] = useState(0);
 
     useEffect(async () => {
         setLieu(await getLieu(pid));
@@ -24,15 +26,30 @@ const Lieu = () => {
             avis: [...lieu.avis, 
                 {
                     content: avis,
-                    name: "user"
+                    name: "user",
                 }
-            ]
+            ],
+            rates: {
+                ...lieu.rates,
+                moyenne: [
+                    ...lieu.rates.moyenne,
+                    parseInt(rate)
+                ]
+            }
         };
-
         addRate(pid,form);
         console.log(form);
-        setLieu( {...lieu,avis:form.avis});
+        setLieu({...lieu,avis:form.avis,rates:form.rates});
     }
+
+    function getMoyenne(array){
+        let s = 0;
+        for(let i=0;i<array.length;i++){
+            s+=array[i];
+        }
+        s /= array.length;
+        return s;
+    } 
 
     if (!lieu){
         return (<>
@@ -53,11 +70,11 @@ const Lieu = () => {
     
             <div className=" sm:w-7/12">
                 {
-                    lieu.rates.map((rate,key) => 
+                    Object.keys(lieu.rates).map((rate,key) => 
                         <div className="flex" key={key}>
-                            <p>{rate.title} : </p>
+                            <p className="capitalize">{rate} : </p>
                             <div className="ml-2">
-                                <Etoiles rate={rate.rate}></Etoiles>
+                                <Etoiles rate={getMoyenne(lieu.rates[rate])}></Etoiles>
                             </div>
                         </div>
                     )
@@ -89,6 +106,7 @@ const Lieu = () => {
                 <form onSubmit={handleSubmit}>
                     <input type="text-area" placeholder="avis" onChange={e => setAvis(e.target.value)} value={avis}></input>
                     <br/>
+                    <RateStar rate={rate} setRate={setRate}></RateStar>
                     <input type="submit" value="Submit" />
                 </form>
             </div>

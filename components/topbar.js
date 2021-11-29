@@ -38,6 +38,21 @@ export default function TopBar(){
                     <p>Créer</p>
                 </div>
                 </Link>
+                <Link href="/login">
+                <div className="ml-auto ">
+                <p  className="bg-red-500 p-1 rounded-lg">Login</p>
+                </div>
+                </Link>
+                <Link href="/signup">
+                <div className="ml-2 ">
+                <p  className="bg-red-500 p-1 rounded-lg">SignIn</p>
+                </div>
+                </Link>
+                <Link href="/signout">
+                <div className="ml-2 ">
+                    <p  className="bg-red-500 p-1 rounded-lg">LogOut</p>
+                </div>
+                </Link>
             </div>
         </>
     )
