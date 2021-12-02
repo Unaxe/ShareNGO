@@ -1,13 +1,18 @@
-import { auth } from "./firebase";
+import { auth,firebaseApp } from "./firebase";
+import { getAuth, onAuthStateChanged,signInWithEmailAndPassword,createUserWithEmailAndPassword } from "firebase/auth";
 
-auth.onAuthStateChanged(user => {
+onAuthStateChanged(auth , user => {
     if (user) {
         console.log('user logged in :',user)
     }
     else {
         console.log("user logged out")
     }
-})  
+}) 
+
+function obtainAuth() {
+    return getAuth(firebaseApp);
+}
 
 
 const onSignup = (form) => {
@@ -15,7 +20,7 @@ const onSignup = (form) => {
     const email = form.mail;
     const password = form.password;
 
-    auth.createUserWithEmailAndPassword(email,password).then(cred => {        
+    createUserWithEmailAndPassword(auth,email,password).then(cred => {        
     })
     console.log(email,password)
 }
@@ -28,8 +33,8 @@ const onLogin = (form) => {
     const email = form.mail;
     const password = form.password;
 
-    auth.signInWithEmailAndPassword(email,password).then(cred => {
+    signInWithEmailAndPassword(auth,email,password).then(cred => {
     })
 }
 
-export {onSignup,onLogout,onLogin};
+export {onSignup,onLogout,onLogin,obtainAuth};

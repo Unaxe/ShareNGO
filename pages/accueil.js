@@ -1,7 +1,17 @@
 import Link from 'next/link'
 import TopBar from "../components/topbar"
+import { obtainAuth } from '../utils/auth'
+import { useRouter } from 'next/dist/client/router'; 
+import { useEffect } from 'react';
 export default function Accueil(){
 
+    const router = useRouter();
+    useEffect(() => {
+        const thisauth = obtainAuth();
+        if(!thisauth.currentUser){
+            router.push('/login')
+    }    
+    }, [])
     return <>
         <TopBar></TopBar>
         <div className="fixed top-24 bg-accueil-fond bottom-0 left-0 right-0 flex flex-wrap">

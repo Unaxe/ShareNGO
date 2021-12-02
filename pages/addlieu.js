@@ -10,6 +10,7 @@ export default function AddLieu() {
     const [type, setType] = useState(null);
     const [rate, setRate] = useState(null);
     
+
     const handleSubmit = (evt) => {
         evt.preventDefault();
         const form = {
@@ -22,7 +23,7 @@ export default function AddLieu() {
         addLieu(form);
         alert("Le Lieu a bien été crée")
     }
-
+    
     return (
         <>
             <TopBar></TopBar>

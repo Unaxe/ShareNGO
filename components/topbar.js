@@ -1,6 +1,17 @@
 import Link from 'next/link'
-
+import { onLogout } from '../utils/auth';
+import { useState } from 'react';
+import { useRouter } from 'next/dist/client/router';
 export default function TopBar(){
+    const router = useRouter()
+    const signOut = (e) => {
+        e.preventDefault();
+        onLogout();
+        router.push("/login")
+    }
+    
+
+
     return (
         <>
             <div className="w-full h-24 border-b-2 border-red flex">
@@ -38,21 +49,9 @@ export default function TopBar(){
                     <p>Créer</p>
                 </div>
                 </Link>
-                <Link href="/login">
-                <div className="ml-auto ">
-                <p  className="bg-red-500 p-1 rounded-lg">Login</p>
-                </div>
-                </Link>
-                <Link href="/signup">
-                <div className="ml-2 ">
-                <p  className="bg-red-500 p-1 rounded-lg">SignIn</p>
-                </div>
-                </Link>
-                <Link href="/signout">
-                <div className="ml-2 ">
-                    <p  className="bg-red-500 p-1 rounded-lg">LogOut</p>
-                </div>
-                </Link>
+                <div className="ml-2" onClick={signOut}>
+                    <p  className="bg-red-500 p-1 rounded-lg cursor-pointer">LogOut</p>
+                </div>         
             </div>
         </>
     )
