@@ -11,18 +11,16 @@ onAuthStateChanged(auth , user => {
 }) 
 
 function obtainAuth() {
-    return getAuth(firebaseApp);
+    const thisauth = getAuth(firebaseApp);
+    return thisauth;
 }
 
 
 const onSignup = (form) => {
-    
     const email = form.mail;
     const password = form.password;
-
     createUserWithEmailAndPassword(auth,email,password).then(cred => {        
     })
-    console.log(email,password)
 }
 
 const onLogout = () => {

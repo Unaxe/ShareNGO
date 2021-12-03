@@ -49,9 +49,10 @@ export default function TopBar(){
                     <p>Créer</p>
                 </div>
                 </Link>
-                <div className="ml-2" onClick={signOut}>
-                    <p  className="bg-red-500 p-1 rounded-lg cursor-pointer">LogOut</p>
-                </div>         
+                <div className="flex flex-col items-center justify-center ml-auto mr-8 cursor-pointer hover:text-blue-400" onClick={signOut}>
+                    <i className="ri-logout-box-r-line ri-2x"></i>
+                    <p>Se déconnecter</p>
+                </div>        
             </div>
         </>
     )
