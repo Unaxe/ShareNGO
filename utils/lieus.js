@@ -31,8 +31,8 @@ const addLieu = async (form) => {
 
 const addRate = async (pid,form) => {
     await firestore.collection("lieu").doc(pid).update({
-        avis: firebase.firestore.arrayUnion(form.avis),
-        rates : firebase.firestore.moyenne.arrayUnion(form.rates)
+        avis: firebase.firestore.FieldValue.arrayUnion(form.avis),
+        rates: firebase.firestore.FieldValue.arrayUnion(form.rates)
     })
 }
     
