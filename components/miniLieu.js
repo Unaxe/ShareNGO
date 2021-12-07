@@ -17,7 +17,7 @@ export default function MiniLieu(props){
         <div className="md:flex">
 
             <div className="md:w-1/3 w-full"> 
-                <div className="my-auto flex align-middle align-center"><img src="/landing_bg.jpg" alt=""></img></div>
+                <div className="my-auto flex align-middle align-center"><img src={props.lieu.image} alt=""></img></div>
             </div>
 
             <div className="md:w-2/3 mb-2">

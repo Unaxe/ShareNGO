@@ -2,7 +2,6 @@ import { firestore } from "./firebase";
 
 const getLieus = async () => {
     const snapshot = await firestore.collection("lieu").get();
-    snapshot.docs.forEach((doc) => console.log(doc.data()));
     return snapshot;
 };
 
@@ -20,12 +19,12 @@ const addLieu = async (form) => {
         },
         type: form.type,
         avis : [],
-        cost: [form.cost]
+        cost: [form.cost],
+        image:form.image
     })
 };
 
 const addRate = async (pid,form) => {
-    console.log(form);
     await firestore.collection("lieu").doc(pid).update({
         avis: form.avis,
         rates: form.rates

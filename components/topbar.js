@@ -2,13 +2,20 @@ import Link from 'next/link'
 import { onLogout } from '../utils/auth';
 import { useState } from 'react';
 import { useRouter } from 'next/dist/client/router';
+import { onAuthStateChanged,getAuth } from "@firebase/auth"
 export default function TopBar(){
     const router = useRouter()
     const signOut = (e) => {
         e.preventDefault();
         onLogout();
-        router.push("/login")
     }
+
+    const auth = getAuth()
+    onAuthStateChanged(auth,user => {
+        if(!user) {
+            router.push('/login')
+        }
+    })
     
 
 

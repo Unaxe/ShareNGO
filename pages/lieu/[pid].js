@@ -7,18 +7,33 @@ import TopBar from "../../components/topbar"
 import { getLieu,addRate } from "../../utils/lieus"
 import RateStar from "../../components/rateStars"
 
+import { onAuthStateChanged,getAuth } from "@firebase/auth"
+import { getUser } from "../../utils/auth"
 
 const Lieu = () => {
+
+
     const router = useRouter()
     const { pid } = router.query
-    const [lieu,setLieu] = useState(null);
-    const [avis,setAvis] = useState(null);
+    const [lieu,setLieu] = useState("");
+    const [avis,setAvis] = useState("");
     const [rate, setRate] = useState(0);
+    const [username, setusername] = useState("")
+    
+
+    const auth = getAuth()
+    onAuthStateChanged(auth,user => {
+        if(user){
+            getUser(user).then( a =>{
+            setusername(a.pseudo)
+            })
+        }
+    })
 
     useEffect(async () => {
-        setLieu(await getLieu(pid));
-        console.log(lieu);
-    },[])
+        setLieu(await getLieu(pid))
+        }
+    ,[])
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
@@ -26,7 +41,7 @@ const Lieu = () => {
             avis: [...lieu.avis, 
                 {
                     content: avis,
-                    name: "user",
+                    name: username,
                 }
             ],
             rates: {
@@ -84,7 +99,7 @@ const Lieu = () => {
                 <p>Type : <span className="font-bold">{lieu.type}</span></p>
             </div>
             <div className="sm:w-5/12 mt-2">
-                <p className=""><img src="/landing_bg.jpg" alt="image"/></p>
+                <p className=""><img src={lieu.image} alt="image"/></p>
             </div>
         </div>
         <div className="md:flex mb-16">

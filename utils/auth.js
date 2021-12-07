@@ -1,5 +1,6 @@
-import { auth,firebaseApp } from "./firebase";
-import { getAuth, onAuthStateChanged,signInWithEmailAndPassword,createUserWithEmailAndPassword } from "firebase/auth";
+import { auth,firebaseApp,firestore } from "./firebase"
+import { getAuth, onAuthStateChanged,signInWithEmailAndPassword,createUserWithEmailAndPassword } from "firebase/auth"
+import { delBasePath } from "next/dist/shared/lib/router/router"
 
 onAuthStateChanged(auth , user => {
     if (user) {
@@ -19,9 +20,19 @@ function obtainAuth() {
 const onSignup = (form) => {
     const email = form.mail;
     const password = form.password;
-    createUserWithEmailAndPassword(auth,email,password).then(cred => {        
+    createUserWithEmailAndPassword(auth,email,password).then(cred => {    
+        return firestore.collection("users").doc(cred.user.uid).set({
+            pseudo: form.pseudo
+        })
+    })
+    .catch(err => {
+        console.log(err.message)
     })
 }
+const getUser = async (user) => {
+    const snapshot = await firestore.collection("users").doc(user.uid).get().then()
+    return (snapshot.data());
+};
 
 const onLogout = () => {
     auth.signOut()
@@ -35,4 +46,4 @@ const onLogin = (form) => {
     })
 }
 
-export {onSignup,onLogout,onLogin,obtainAuth};
+export {onSignup,onLogout,onLogin,obtainAuth,getUser};

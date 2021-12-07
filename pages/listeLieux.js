@@ -11,9 +11,7 @@ export default function ListLieux() {
     
     useEffect(async () => {
         setLieus(await getLieus());
-        console.log(lieus);
     },[])
-    console.log(lieus);
 
     if (!lieus){
         return (<>

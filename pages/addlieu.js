@@ -4,11 +4,12 @@ import { useState } from "react";
 
 export default function AddLieu() {
 
-    const [name, setName] = useState(null);
-    const [adress, setAdress] = useState(null);
-    const [cost, setCost] = useState(null);
-    const [type, setType] = useState(null);
-    const [rate, setRate] = useState(null);
+    const [name, setName] = useState("");
+    const [adress, setAdress] = useState("");
+    const [cost, setCost] = useState(0);
+    const [type, setType] = useState("");
+    const [rate, setRate] = useState(0);
+    const [image, setimage] = useState("")
     
 
     const handleSubmit = (evt) => {
@@ -34,7 +35,8 @@ export default function AddLieu() {
                     <input type="text" name="address" placeholder="Adresse du Lieu" onChange={e => setAdress(e.target.value)} value={adress}></input>
                     <input type="text" name="rate" placeholder="Note du Lieu" onChange={e => setRate(e.target.value)} value={rate}></input>
                     <input type="text" name="cost" placeholder="Prix moyen" onChange={e => setCost(e.target.value)} value={cost}></input>
-                    <input type="text" name="type" placeholder=" type du Lieu" onChange={e => setType(e.target.value)} value={type}></input>
+                    <input type="text" name="type" placeholder="Type du Lieu" onChange={e => setType(e.target.value)} value={type}></input>
+                    <input type="text" name="image" placeholder="Lien de l'Image du lieu" onChange={e => setimage(e.target.value)} value={image}></input>
                     <input type="submit" value="Submit" />
                 </form>
             </div>
