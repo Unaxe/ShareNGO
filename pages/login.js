@@ -13,7 +13,6 @@ export default function Login() {
     const [mailsignup, setMailsignup] = useState("");
     const [passwordsignup, setPasswordsignup] = useState("");
     const [pseudo,setPseudo] = useState("");
-    const [state,setState] = useState(0)
 
     
     
@@ -34,7 +33,6 @@ export default function Login() {
             mail:maillogin,
             password:passwordlogin
         };
-        setState(1-state)
         onLogin(form)
     }
 
@@ -45,7 +43,6 @@ export default function Login() {
             password:passwordsignup,
             pseudo:pseudo
         };
-        setState(1-state)
         onSignup(form);
     }
 

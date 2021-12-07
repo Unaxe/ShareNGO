@@ -1,16 +1,7 @@
 import Link from 'next/link'
 import TopBar from "../components/topbar"
-import { useRouter } from 'next/dist/client/router';
-import { onAuthStateChanged,getAuth } from "@firebase/auth"
 
 export default function Accueil(){
-    const auth = getAuth()
-    const router = useRouter()
-    onAuthStateChanged(auth,user => {
-        if(!user) {
-            router.push('/login')
-        }
-    })
 
     return <>
         <TopBar></TopBar>
