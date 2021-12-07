@@ -38,19 +38,11 @@ const Lieu = () => {
     const handleSubmit = (evt) => {
         evt.preventDefault();
         const form = {
-            avis: [...lieu.avis, 
-                {
+            avis: {
                     content: avis,
                     name: username,
-                }
-            ],
-            rates: {
-                ...lieu.rates,
-                moyenne: [
-                    ...lieu.rates.moyenne,
-                    parseInt(rate)
-                ]
-            }
+                },
+            rates: parseInt(rate)
         };
         addRate(pid,form);
         console.log(form);
