@@ -21,6 +21,9 @@ const addLieu = async (form) => {
         avis : [],
         cost: [form.cost],
         image:form.image
+    }).then()
+    .catch(err => {
+        alert(err.message)
     })
 };
 

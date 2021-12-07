@@ -13,7 +13,7 @@ export default function Login() {
     const [mailsignup, setMailsignup] = useState("");
     const [passwordsignup, setPasswordsignup] = useState("");
     const [pseudo,setPseudo] = useState("");
-
+    const [signupmessage, setsignup] = useState(null)
     
     
     const router = useRouter()
@@ -43,7 +43,7 @@ export default function Login() {
             password:passwordsignup,
             pseudo:pseudo
         };
-        onSignup(form);
+        onSignup(form)
     }
 
     return (<>
@@ -72,6 +72,9 @@ export default function Login() {
                         <input type="text" className="border-2 p-1 border-black rounded-md mx-4  mb-4" name="pseudo" placeholder="Pseudo" onChange={e => setPseudo(e.target.value)} value={pseudo}></input>
                         <button className="p-1 bg-gray-200 rounded-md">S'enregistrer</button>
                     </form>
+                    <div>
+                        {signupmessage}
+                    </div>
                 </div>
             </div>
         </div>
