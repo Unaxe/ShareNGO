@@ -20,7 +20,7 @@ const addLieu = async (form) => {
         type: form.type,
         avis : [],
         cost: [form.cost],
-        image:form.image
+        image: form.image
     }).then(
         alert("Le Lieu a bien été crée")
     )
