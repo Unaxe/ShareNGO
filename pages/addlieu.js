@@ -55,7 +55,7 @@ export default function AddLieu() {
                         <label for="type" className="text-white mb-2 mt-2">Type de Lieu:</label>
                         <input type="text" className="border-2 p-1 border-black rounded-md mx-4 " name="type" placeholder="Type du Lieu" onChange={e => setType(e.target.value)} value={type}></input>
                         <label for="image" className="text-white mb-2 mt-2">Lien de l'Image:</label>
-                        <input type="text" className="border-2 p-1 border-black rounded-md mx-4 mb-4 " name="image" placeholder="Lien de l'Image du lieu" onChange={e => setimage(e.target.value)} value={image}></input>
+                        <input type="url" className="border-2 p-1 border-black rounded-md mx-4 mb-4 " name="image" placeholder="Lien de l'Image du lieu" onChange={e => setimage(e.target.value)} value={image}></input>
                         <button className="p-1 bg-gray-200 rounded-md">Ajouter le lieu</button>
                     </form> 
                 </div>
