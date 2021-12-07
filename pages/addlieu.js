@@ -19,7 +19,8 @@ export default function AddLieu() {
             adress: adress,
             cost:cost,
             type:type,
-            rate:rate
+            rate:rate,
+            image:image
         };
         addLieu(form)
     }
