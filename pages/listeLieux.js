@@ -35,6 +35,7 @@ export default function ListLieux() {
         <>
             <main>
                 <TopBar/>
+                <h2 className="text-3xl text-center h-3 my-16 text-pink-700 font-bold">Liste des lieux</h2>
                 <div className="lg:w-3/4 lg:mx-auto">
                     {lieus.docs.map((lieu) =>{
                         return <div key={lieu.id} className = "w-full mb-4"> 

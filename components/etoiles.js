@@ -1,10 +1,10 @@
 export default function Etoiles(props){
     const stars =  []
     for(let i=0;i<Math.floor(props.rate);i++){
-        stars.push(<i className="ri-star-fill text-yellow-500 ri-sm"></i>)
+        stars.push(<i className="ri-star-fill text-yellow-500 ri-md"></i>)
     }
     for(let i=0;i<5-Math.floor(props.rate);i++){
-        stars.push(<i className="ri-star-line text-yellow-500  ri-sm"></i>)
+        stars.push(<i className="ri-star-line text-yellow-500  ri-md"></i>)
     }
     return(<>
         <div className="flex">

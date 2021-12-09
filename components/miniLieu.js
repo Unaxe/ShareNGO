@@ -14,18 +14,21 @@ export default function MiniLieu(props){
 
     return(
         <>
-        <div className="md:flex">
+        <div className="md:flex shadow-md  border-2">
 
             <div className="md:w-1/3 w-full"> 
                 <div className="my-auto flex align-middle align-center"><img src={props.lieu.image} alt=""></img></div>
             </div>
 
             <div className="md:w-2/3 mb-2">
-                <div className="border-b-2 border-black pb-2 px-2">
-                    <h2 className="text-center text-yellow-500 font-bold text-3xl">
+                <div className="border-b-2  border-black pb-2 px-2">
+                    <div className=" absolute mt-1">    
+                        <Etoiles rate={getMoyenne(props.lieu.rates.moyenne)}>  </Etoiles>
+                    </div>
+                    <h2 className="text-center text-yellow-500 font-bold text-2xl text-center">
                         {props.lieu.name}
                     </h2>
-                    <Etoiles rate={getMoyenne(props.lieu.rates.moyenne)}>  </Etoiles>
+                    
                     <p>
                         {props.lieu.adress}
                     </p>
