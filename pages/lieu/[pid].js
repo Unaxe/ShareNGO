@@ -53,7 +53,6 @@ const Lieu = () => {
             }
         };
         addRate(pid,form);
-        console.log(form);
         setLieu({...lieu,avis:form.avis,rates:form.rates});
     }
 
@@ -97,9 +96,26 @@ const Lieu = () => {
                 
                 <p>Prix moyen : <span className="font-bold">{lieu.cost}€</span></p>
                 <p>Type : <span className="font-bold">{lieu.type}</span></p>
+                <div className="relative bottom-0">
+                
+                <div className="mt-16 bg-gray-100 border-2 border-gray-300 p-1 rounded-md mr-32">
+                    <h3 className="text-pink-700 font-semibold">Laisser un avis :</h3>
+                    <form  onSubmit={handleSubmit}>
+                        <div className="flex">
+                            <div className="mr-2">Note :</div>
+                            <RateStar rate={rate} setRate={setRate}></RateStar>
+                        </div>
+                        <div className="pr-32">
+                            <input type="text-area" className="border-2  w-full border-black rounded-md p-1" placeholder="Entrez votre avis" onChange={e => setAvis(e.target.value)} value={avis}></input>
+                        </div>
+                        <br/>
+                        <input className="w-auto h-auto py-1 px-1 text-base p-auto bg-accueil-button text-white" type="submit" value="Envoyer votre avis" />
+                    </form>
+                </div>
+            </div>
             </div>
             <div className="sm:w-5/12 mt-2">
-                <p className=""><img src={lieu.image} alt="image"/></p>
+                <p className=""><img className="rounded-xl" src={lieu.image} alt="image"/></p>
             </div>
         </div>
         <div className="md:flex mb-16">
@@ -111,20 +127,12 @@ const Lieu = () => {
                     </div>
                 )}
                 </div>
-            <div className="md:w-1/2 w-full flex flex-col justify-center mt-8">
-                <p class ="mx-auto"><img alt="" src="/map.png"/></p>
+            <div className="md:w-5/12 ml-auto w-full mt-8">
+                <p className=""><img className="rounded-xl" alt="" src="/map.png"/></p>
             </div>
         </div>
         <div className="mb-16">
-            <div>
-                <h3 className=" mt-16 text-pink-700 font-semibold">Laisser un avis :</h3>
-                <form onSubmit={handleSubmit}>
-                    <input type="text-area" placeholder="avis" onChange={e => setAvis(e.target.value)} value={avis}></input>
-                    <br/>
-                    <RateStar rate={rate} setRate={setRate}></RateStar>
-                    <input type="submit" value="Submit" />
-                </form>
-            </div>
+            
         </div>
     </div>  
     </>
