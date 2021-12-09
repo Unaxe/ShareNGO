@@ -14,8 +14,7 @@ export default function MiniLieu(props){
 
     return(
         <>
-        <div className="md:flex shadow-md  border-2">
-
+        <div className="md:flex shadow-md  border-2 relative">
             <div className="md:w-1/3 w-full"> 
                 <div className="my-auto flex align-middle align-center"><img src={props.lieu.image} alt=""></img></div>
             </div>
@@ -42,6 +41,8 @@ export default function MiniLieu(props){
                 {(props.lieu.avis.length > 0) && <div className="p-2"><MiniAvis avis={props.lieu.avis[0]} ></MiniAvis></div>
                 }
             </div>
+            
+            <div className="absolute top-0 bottom-0 left-0 right-0 bg-white opacity-0 hover:opacity-50"></div>
         </div>
         </>
     )
