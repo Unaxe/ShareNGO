@@ -47,7 +47,7 @@ export default function Login() {
     }
 
     return (<>
-        <div className="fixed top-0 left-0 right-0 bottom-0 bg-gray-200 flex justify-center items-center">
+        <div className="fixed top-0 left-0 right-0 bottom-0 bg-gray-200 md:flex-row flex-col flex justify-center items-center">
             <div className="mx-auto">
                 <h2 className="font-bold text-yellow-500 text-center text-xl">Se connecter</h2>
                 <div className="bg-indigo-400 p-2 rounded-md">

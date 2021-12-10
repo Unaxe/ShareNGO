@@ -8,10 +8,19 @@ import TopBar from "../components/topbar"
 export default function ListLieux() {
     
     const [lieus,setLieus] = useState(null);
+    function getMoyenne(array){
+        let s = 0;
+        for(let i=0;i<array.length;i++){
+            s+=array[i];
+        }
+        s /= array.length;
+        return s;
+    } 
     
     useEffect(async () => {
-        setLieus(await getLieus());
+        await setLieus((await getLieus()));
     },[])
+
 
     if (!lieus){
         return (<>
