@@ -28,7 +28,7 @@ export default function RateStar({rate, setRate}){
         <div className="flex">
             { 
             stars.map((star,i)=>
-                <li className="list-none" >
+                <li className="list-none" key={i} >
                     <i className={star==0 ? "ri-star-line text-yellow-500 ri-sm":"ri-star-fill text-yellow-500 ri-sm"} onClick={() => rating(i)} onMouseEnter={() => highlight(i)} onMouseLeave={disHighlight} key={i}/>
                 </li>
             )

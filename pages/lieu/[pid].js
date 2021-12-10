@@ -31,9 +31,12 @@ const Lieu = () => {
     })
 
     useEffect(async () => {
+        if(!pid){
+            return
+        }
         setLieu(await getLieu(pid))
         }
-    ,[])
+    ,[pid])
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
