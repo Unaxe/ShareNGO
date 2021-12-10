@@ -33,7 +33,6 @@ export default function RateStar({rate, setRate}){
                 </li>
             )
             }
-
         </div>
     </>)
 }
